@@ -1,6 +1,6 @@
 package com.employeemanagement.controller;
 
-import com.employeemanagement.dto.request.ProjectRequest;
+import com.employeemanagement.dto.request.ProjectDTO;
 import com.employeemanagement.dto.response.ProjectResponse;
 import com.employeemanagement.service.ProjectService;
 import jakarta.validation.Valid;
@@ -30,13 +30,13 @@ public class ProjectController {
     }
 
     @PostMapping
-    public ResponseEntity<ProjectResponse> createProject(@Valid @RequestBody ProjectRequest request) {
+    public ResponseEntity<ProjectResponse> createProject(@Valid @RequestBody ProjectDTO request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(projectService.create(request));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id,
-                                                        @Valid @RequestBody ProjectRequest request) {
+                                                        @Valid @RequestBody ProjectDTO request) {
         return ResponseEntity.ok(projectService.update(id, request));
     }
 

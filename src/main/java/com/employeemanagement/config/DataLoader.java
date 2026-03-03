@@ -30,14 +30,14 @@ public class DataLoader {
     private final ProjectRepository projectRepository;
     private final EmployeeProjectRepository employeeProjectRepository;
 
-    private static final String[] FIRST_NAMES = {"James", "Mary", "John", "Patricia", "Robert", "Jennifer",
-            "Michael", "Linda", "William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica",
-            "Thomas", "Sarah", "Charles", "Karen", "Christopher", "Nancy", "Daniel", "Lisa", "Matthew", "Betty",
-            "Anthony", "Margaret", "Mark", "Sandra", "Donald", "Ashley", "Steven", "Kimberly", "Paul", "Emily"};
+    private static final String[] FIRST_NAMES = {"Gaurav", "Sukumar", "Srinivas", "Mohit", "Jaya", "Jennifer",
+            "Jamila", "Poorva", "Sayma", "Rahul", "Dravid", "BalaKumar", "Yash", "Susan", "Jaykumar", "Jessica",
+            "Praveen", "Sarah", "Charles", "Karen", "Christopher", "Nancy", "Daniel", "Lisa", "Matthew", "Betty",
+            "Anthony", "Samson", "Surya", "Kumaran", "Donald", "Ashley", "Steven", "Kimberly", "Paul", "Emily"};
 
-    private static final String[] LAST_NAMES = {"Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia",
-            "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson",
-            "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris"};
+    private static final String[] LAST_NAMES = {"Vanasthali", "Sharma", "Kohli", "Shashtri", "Dhillon", "Singh",
+            "Garcha", "Bumrah", "Sindhu", "Kharsa", "Bhaskaran", "Patel", "Patil", "Narsimhan", "Nagaraj",
+            "Thomas", "Taylor", "Divekar", "Agarkar", "Tyagi", "Lee", "Walia", "Jain", "Agarwal", "Agnihotri"};
 
     @EventListener(ApplicationReadyEvent.class)
     @Transactional
@@ -72,10 +72,10 @@ public class DataLoader {
         return List.of(
                 Department.builder().name("Engineering").location("New York").build(),
                 Department.builder().name("Human Resources").location("San Francisco").build(),
-                Department.builder().name("Finance").location("Chicago").build(),
-                Department.builder().name("Marketing").location("Austin").build(),
-                Department.builder().name("Sales").location("Seattle").build(),
-                Department.builder().name("Operations").location("Boston").build()
+                Department.builder().name("Finance").location("Hyderabad").build(),
+                Department.builder().name("Marketing").location("Gurgaon").build(),
+                Department.builder().name("Sales").location("Chennai").build(),
+                Department.builder().name("Operations").location("Bengaluru").build()
         );
     }
 
@@ -86,7 +86,7 @@ public class DataLoader {
                 Project.builder().name("Project Gamma").description("Cloud migration").department(departments.get(0)).build(),
                 Project.builder().name("HR Portal").description("Employee self-service portal").department(departments.get(1)).build(),
                 Project.builder().name("Recruitment Drive").description("Q4 hiring campaign").department(departments.get(1)).build(),
-                Project.builder().name("Budget 2024").description("Annual budget planning").department(departments.get(2)).build(),
+                Project.builder().name("Budget 2026").description("Annual budget planning").department(departments.get(2)).build(),
                 Project.builder().name("Brand Refresh").description("Marketing rebrand").department(departments.get(3)).build(),
                 Project.builder().name("Sales CRM").description("CRM implementation").department(departments.get(4)).build(),
                 Project.builder().name("Supply Chain").description("Logistics optimization").department(departments.get(5)).build()
@@ -97,7 +97,7 @@ public class DataLoader {
         List<Employee> employees = new java.util.ArrayList<>();
         int emailCounter = 1;
 
-        for (int i = 0; i < 55; i++) {
+        for (int i = 0; i < 60; i++) {
             String firstName = FIRST_NAMES[i % FIRST_NAMES.length];
             String lastName = LAST_NAMES[i % LAST_NAMES.length];
             String name = firstName + " " + lastName;

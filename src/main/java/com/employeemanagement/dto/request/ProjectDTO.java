@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProjectRequest {
+public class ProjectDTO {
 
     @NotBlank(message = "Name is required")
     @Size(max = 150)

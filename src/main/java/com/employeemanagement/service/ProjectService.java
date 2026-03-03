@@ -1,6 +1,6 @@
 package com.employeemanagement.service;
 
-import com.employeemanagement.dto.request.ProjectRequest;
+import com.employeemanagement.dto.request.ProjectDTO;
 import com.employeemanagement.dto.response.ProjectResponse;
 import com.employeemanagement.entity.Department;
 import com.employeemanagement.entity.Project;
@@ -36,7 +36,7 @@ public class ProjectService {
     }
 
     @Transactional
-    public ProjectResponse create(ProjectRequest request) {
+    public ProjectResponse create(ProjectDTO request) {
         Department department = departmentRepository.findById(request.getDepartmentId())
                 .orElseThrow(() -> new ResourceNotFoundException("Department", request.getDepartmentId()));
 
@@ -49,7 +49,7 @@ public class ProjectService {
     }
 
     @Transactional
-    public ProjectResponse update(Long id, ProjectRequest request) {
+    public ProjectResponse update(Long id, ProjectDTO request) {
         Project project = projectRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Project", id));
 

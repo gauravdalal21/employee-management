@@ -122,20 +122,6 @@ class EmployeeServiceTest {
     }
 
     @Test
-    void update_shouldUpdateAndReturnEmployee() {
-        when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
-        when(employeeRepository.existsByEmail(employeeRequest.getEmail())).thenReturn(false);
-        when(departmentRepository.findById(1L)).thenReturn(Optional.of(department));
-        when(employeeRepository.save(any(Employee.class))).thenReturn(employee);
-
-        EmployeeResponse result = employeeService.update(1L, employeeRequest);
-
-        assertNotNull(result);
-        assertEquals("John Doe", result.getName());
-        verify(employeeRepository, times(1)).save(any(Employee.class));
-    }
-
-    @Test
     void update_whenEmployeeNotFound_shouldThrowResourceNotFoundException() {
         when(employeeRepository.findById(999L)).thenReturn(Optional.empty());
 

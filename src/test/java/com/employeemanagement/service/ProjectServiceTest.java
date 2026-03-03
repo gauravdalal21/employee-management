@@ -1,6 +1,6 @@
 package com.employeemanagement.service;
 
-import com.employeemanagement.dto.request.ProjectRequest;
+import com.employeemanagement.dto.request.ProjectDTO;
 import com.employeemanagement.dto.response.ProjectResponse;
 import com.employeemanagement.entity.Department;
 import com.employeemanagement.entity.Project;
@@ -35,7 +35,7 @@ class ProjectServiceTest {
 
     private Department department;
     private Project project;
-    private ProjectRequest projectRequest;
+    private ProjectDTO projectDTO;
 
     @BeforeEach
     void setUp() {
@@ -52,7 +52,7 @@ class ProjectServiceTest {
                 .department(department)
                 .build();
 
-        projectRequest = ProjectRequest.builder()
+        projectDTO = ProjectDTO.builder()
                 .name("Project Alpha")
                 .description("Core platform")
                 .departmentId(1L)
@@ -95,7 +95,7 @@ class ProjectServiceTest {
         when(departmentRepository.findById(1L)).thenReturn(Optional.of(department));
         when(projectRepository.save(any(Project.class))).thenReturn(project);
 
-        ProjectResponse result = projectService.create(projectRequest);
+        ProjectResponse result = projectService.create(projectDTO);
 
         assertNotNull(result);
         assertEquals("Project Alpha", result.getName());
@@ -108,7 +108,7 @@ class ProjectServiceTest {
         when(departmentRepository.findById(1L)).thenReturn(Optional.of(department));
         when(projectRepository.save(any(Project.class))).thenReturn(project);
 
-        ProjectResponse result = projectService.update(1L, projectRequest);
+        ProjectResponse result = projectService.update(1L, projectDTO);
 
         assertNotNull(result);
         assertEquals("Project Alpha", result.getName());

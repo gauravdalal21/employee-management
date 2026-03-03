@@ -4,8 +4,8 @@ A Spring Boot REST API application for managing employees, departments, projects
 
 ## Tech Stack
 
-- **Java 25**
-- **Spring Boot 4.0.3**
+- **Java 17**
+- **Spring Boot 3.x.x**
 - **Spring Data JPA**
 - **MySQL**
 - **Lombok**
@@ -37,9 +37,9 @@ employee-management/
 
 ## Prerequisites
 
-- Java 25+
+- Java 17
 - Maven 3.6+
-- MySQL 8.0+ (running on localhost:3306)
+- MySQL 9.0+ (running on localhost:3306)
 
 ## Configuration
 
@@ -57,7 +57,7 @@ cd /Users/gauravdalal/employee-management
 mvn spring-boot:run
 ```
 
-The application will create the database, tables, and seed 55 employees, 6 departments, 9 projects, and 40 assignments on first run.
+The application will create the database, tables, and seed 60 employees, 6 departments, 9 projects, and 40 assignments on first run.
 
 ## API Endpoints
 

@@ -31,7 +31,7 @@ public class EmployeeService {
     @Transactional(readOnly = true)
     public EmployeeResponse findById(Long id) {
         Employee employee = employeeRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee with ID "+ id +" is not available"));
         return toResponse(employee);
     }
 
